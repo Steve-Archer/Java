@@ -11,7 +11,7 @@ public class TestOrders {
         // Order variables -- order1, order2 etc.
     	Order order1 = new Order();
     	Order order2 = new Order();
-    	Order order3 = new Order();
+    	Order order3 = new Order();ban
     	Order order4 = new Order();
     	order1.setName("Cindhuri");
     	order2.setName("Jimmy");
