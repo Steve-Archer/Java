@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class Portfolio {
 	
+	public static int numberOfAccountsCreated = 0;
+	
+	
 	public Portfolio() {
 		this.name = "Guest User";
+		numberOfAccountsCreated++;
 	}
 	
 	public Portfolio(String name) {
 		this.name = name;
+		numberOfAccountsCreated++;
 	}
 	
 	
@@ -68,6 +73,18 @@ public class Portfolio {
 		System.out.println(info);
 		System.out.println(stocksInfo);
 	}
+	
+	public static int getNumberOfAccountsCreated() {
+		return numberOfAccountsCreated;
+	}
+
+	public static void setNumberOfAccountsCreated(int numberOfAccountsCreated) {
+		Portfolio.numberOfAccountsCreated = numberOfAccountsCreated;
+	}
+	
+	
+	
+	
 }
 
 

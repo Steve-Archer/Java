@@ -7,6 +7,15 @@ public class Order {
 	private boolean ready;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
+	public Order() {
+		this.name = "Guest";
+	}
+	public Order(String name) {
+		this.name = name;
+	}
+	
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -35,15 +44,33 @@ public class Order {
 		this.items.add(itemObj);
 		this.total += itemObj.getPrice();
 	}
+	public String getStatusMessage() {
+		String ready;
+		if(this.isReady()) {
+			ready = "Your Order is ready";
+		}
+		else {
+			ready = "Thank you for waiting. Your order will be ready soon.";
+		}
+		return ready;
+	}
+	public double getOrderTotal() {
+		double total = 0;
+		for(int i = 0;i<this.items.size();i++) {
+			total += this.items.get(i).getPrice();
+		}
+		return total;
+	}
 	public void displayOrder() {
 		String orderHeader = "<--This is your order-->";
 		String order = "";
 		for(int i = 0;i<this.items.size();i++) {
-			order += this.items.get(i).getName() + " ---> " + this.items.get(i).getPrice() + "\n";
+			order += this.items.get(i).getName() + " -- $" + this.items.get(i).getPrice() + "\n";
 		}
 		System.out.println(orderHeader);
+		System.out.println("Customer name: " + this.getName());
 		System.out.println(order);
-		System.out.println("Your total is " + this.getTotal());
+		System.out.println("Total: $" + this.getTotal());
 	}
 	
 }

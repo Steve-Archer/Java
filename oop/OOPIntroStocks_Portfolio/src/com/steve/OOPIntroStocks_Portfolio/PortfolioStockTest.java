@@ -29,6 +29,8 @@ public class PortfolioStockTest {
 		Portfolio portfolio1 = new Portfolio();
 		Portfolio portfolio2 = new Portfolio();
 		
+		
+		
 		portfolio1.setName("Fritz");
 		portfolio1.setTotalBalance(100);
 		portfolio1.setDiamondHands(false);
@@ -43,6 +45,7 @@ public class PortfolioStockTest {
 		portfolio1.printRiskAssessment();
 		System.out.println(portfolio1.getTotalBalance());
 		portfolio1.displayInfo();
+		System.out.println(Portfolio.getNumberOfAccountsCreated());
 		
 	}
 
