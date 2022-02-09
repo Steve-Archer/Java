@@ -1,5 +1,3 @@
-// finished ~20 minutes - last 5 minutes spent debugging that I didnt increment i within the while loop (line 13 -> i++)
-
 const balanceIndex = (arr, sum=0, index=0) => {
     if(index>=arr.length) return -1
     for(let i=0;i<arr.length;i++){
