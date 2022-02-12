@@ -26,5 +26,5 @@ console.log(pascalsTriangle(9))
 console.log(pascalsTriangle(10))
 console.log(pascalsTriangle(11))
 console.log(pascalsTriangle(12))
-console.log(pascalsTriangle(50))
+console.log(pascalsTriangle(100))
 
