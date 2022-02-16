@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container w-50 border border-dark p-3 mt-3 bg-light">
-		<h1>Save Travels</h1>
+		<h1 class="text-primary">Save Travels</h1>
 	    <table class="table">
 	        <thead>
 	            <tr>
@@ -26,15 +26,15 @@
 	            <c:forEach items='${allExpenses}' var='expense'>
 	                <tr>
 	                    <th scope="row">${expense.id}</th>
-	                    <td>${expense.item}</td>
+	                    <td><a href="/detail/${expense.id}">${expense.item}</a></td>
 	                    <td>${expense.vendor}</td>
 	                    <td>${expense.price}</td>
-	                    <td><a href="/edit/${expense.id}">edit</a></td>
+	                    <td><a href="/edit/${expense.id}">edit</a>|| <a href="/expense/delete/${expense.id}">Delete</a></td>
 	                </tr>
 	            </c:forEach>
 	        </tbody>
 	    </table>
-	    <h2>Add an Expense</h2>
+	    <h2 class="text-primary">Add an Expense</h2>
 	    <form:form action="/expense/create" method="post" modelAttribute="expense">
 	        <p>
 	            <form:label path="item">Expense</form:label>

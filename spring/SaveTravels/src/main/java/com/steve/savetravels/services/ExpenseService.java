@@ -24,5 +24,7 @@ public class ExpenseService {
 	public Expense update(Expense expense) {
 		return this.expenseRepo.save(expense);
 	}
-	
+	public void delete(Long id) {
+		this.expenseRepo.deleteById(id);
+	}
 }

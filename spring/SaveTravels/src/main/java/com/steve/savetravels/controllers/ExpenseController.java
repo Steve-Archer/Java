@@ -56,6 +56,17 @@ public class ExpenseController {
 			return "redirect:/";
 		}
 	}
+	@RequestMapping("/expense/delete/{id}")
+	public String delete(@PathVariable("id")Long id) {
+		this.expenseService.delete(id);
+		return "redirect:/";
+	}
+	@RequestMapping("/detail/{id}")
+	public String detail(@PathVariable("id")Long id, Model model) {
+		Expense expense = this.expenseService.findOne(id);
+		model.addAttribute("expense", expense);
+		return "detail.jsp";
+	}
 	
 	
 	

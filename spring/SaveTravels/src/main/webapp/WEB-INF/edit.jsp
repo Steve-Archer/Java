@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container w-50 mt-3 p-3 border border-dark bg-light">
-        <h1>Edit Expense</h1>
+        <h1 class="text-success">Edit Expense</h1>
         <form:form action="/expense/edit/${expense.id}" method="post" modelAttribute="expense">
         	<input type="hidden" name="_method" value="put">
             <p>
