@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -11,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-	<div class="container w-50 border border-dark p-3 mt-3">
+	<div class="container w-50 border border-dark p-3 mt-3 bg-light">
 		<h1>Save Travels</h1>
 	    <table class="table">
 	        <thead>
@@ -20,6 +19,7 @@
 	                <th scope="col">Expense</th>
 	                <th scope="col">Vendor</th>
 	                <th scope="col">Price</th>
+	                <th scope="col">Actions</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -29,6 +29,7 @@
 	                    <td>${expense.item}</td>
 	                    <td>${expense.vendor}</td>
 	                    <td>${expense.price}</td>
+	                    <td><a href="/edit/${expense.id}">edit</a></td>
 	                </tr>
 	            </c:forEach>
 	        </tbody>

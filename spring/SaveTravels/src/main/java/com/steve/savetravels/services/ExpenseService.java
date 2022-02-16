@@ -18,6 +18,11 @@ public class ExpenseService {
 	public Expense createExpense(Expense expense) {
 		return this.expenseRepo.save(expense);
 	}
-	
+	public Expense findOne(Long id) {
+		return this.expenseRepo.findById(id).orElse(null);
+	}
+	public Expense update(Expense expense) {
+		return this.expenseRepo.save(expense);
+	}
 	
 }
