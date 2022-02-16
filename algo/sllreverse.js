@@ -21,31 +21,7 @@ class SinglyLinkedList {
             runner.next = pushedNode
         }
     }
-    unshiftNode(value){
-        let unshiftedNode = new Node(value)
-        if(this.head == null){
-            this.head = unshiftedNode
-        }
-        else{
-            unshiftedNode.next = this.head
-            this.head = unshiftedNode
-        }
-    }
-    shiftNode(){
-        let removedNode = this.head
-        this.head = removedNode.next
-        removedNode.next = null
-        return removedNode
-    }
-    popNode(){
-        let runner = this.head
-        while (runner.next.next != null){
-            runner = runner.next
-        }
-        let tail = runner.next
-        runner.next = null
-        return tail
-    }
+    
     displayList(){
         let singlyLinkedList = ""
         let runner = this.head
@@ -55,17 +31,35 @@ class SinglyLinkedList {
         }
         console.log(singlyLinkedList)
     }
+    reverseList(){ 
+        let runner = this.head
+        let previousNode = runner
+        while(runner != null){
+            let newNode = runner.next
+            if(runner == this.head){
+                runner.next = null
+            }else{
+                runner.next = previousNode
+            }
+            previousNode = runner
+            if(newNode == null){
+                this.head = runner
+            }
+            runner = newNode
+        }
+    }
+
 }
 
 let singlyLinkedList = new SinglyLinkedList()
 singlyLinkedList.pushNode(3)
+singlyLinkedList.pushNode(7)
+singlyLinkedList.pushNode(23)
+singlyLinkedList.pushNode(0)
 singlyLinkedList.pushNode(12)
 singlyLinkedList.pushNode(15)
 singlyLinkedList.pushNode(9)
-singlyLinkedList.unshiftNode(10)
 singlyLinkedList.displayList()
-singlyLinkedList.shiftNode()
-singlyLinkedList.displayList()
-singlyLinkedList.popNode()
+singlyLinkedList.reverseList()
 singlyLinkedList.displayList()
 
