@@ -92,11 +92,9 @@ public class HomeController {
     @GetMapping("/books/{id}")
     public String details(@PathVariable("id") Long id, Model model, HttpSession session) {
     	Long userId = (Long) session.getAttribute("loggedInUser");
+    	model.addAttribute("userId", userId);
     	Book book = this.bookServ.getBook(id);
     	model.addAttribute("book", book);
-    	if(userId==book.getUser().getId()){
-    		return "detailsPoster.jsp";
-    	}
     	return "details.jsp";
     }
     @GetMapping("/books/edit/{id}")

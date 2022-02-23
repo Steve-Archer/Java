@@ -14,14 +14,28 @@
 <body>
     <div class="container">
         <h1>${book.title}</h1>
-        <div>
+        <c:if test="${userId != book.getUser().getId()}">
+            <div>
+                <br><hr>
                 <h5><span class="text-danger">${book.user.userName}</span> read <span class="text-primary">${book.title}</span> by <span class="text-success">${book.author}</span> .</h5>
                 <h5>Here are ${book.user.userName} thoughts:</h5>
                 <br><hr>
                 <p>${book.thought}</p>
                 <br><hr>
-        </div>
-
+            </div>
+        </c:if>
+        <c:if test="${userId == book.getUser().getId()}">
+            <div>
+                <br><hr>
+                <h5><span class="text-danger">You</span> read <span class="text-primary">${book.title}</span> by <span class="text-success">${book.author}</span> .</h5>
+                <h5>Here are your thoughts:</h5>
+                <br><hr>
+                <p>${book.thought}</p>
+                <br><hr>
+                <a href="/books/edit/${book.id}">edit ${book.title}</a><br>
+                <a href="/books/delete/${book.id}">delete ${book.title}</a><hr>
+            </div>
+        </c:if>
 
 
 
