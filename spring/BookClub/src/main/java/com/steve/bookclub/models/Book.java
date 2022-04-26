@@ -2,6 +2,7 @@ package com.steve.bookclub.models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,6 +38,11 @@ public class Book {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="borrower_id")
+	private User borrower;
+	
+	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -56,12 +62,13 @@ public class Book {
 	
 	public Book() {}
 	
-	public Book(String title, String author, String thought) {
+	public Book(String title, String author, String thought, User borrower) {
 		this.title = title;
 		this.author = author;
-		this.thought = thought;	
+		this.thought = thought;
+		this.borrower = borrower;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -102,6 +109,14 @@ public class Book {
 		this.user = user;
 	}
 
+	public User getBorrower() {
+		return borrower;
+	}
+
+	public void setBorrower(User borrower) {
+		this.borrower = borrower;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -117,4 +132,7 @@ public class Book {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-}
+	
+	
+	
+}	

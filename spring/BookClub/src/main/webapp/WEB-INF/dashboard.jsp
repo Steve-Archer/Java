@@ -34,11 +34,7 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
+    <a href="/bookmarket">Go to the book market</a>
     <a href="/logout">Logout</a>
 </body>
 </html>

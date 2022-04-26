@@ -30,7 +30,8 @@
                         <form:errors path="thought" class="text-danger"/>
                         <form:textarea path="thought" class= "form-control"/>
                     </div>
-                    <form:input path="user.id" type="hidden" value="${userLoggedIn.id}"/>
+                    <form:input path="borrower" type="hidden" value="0"/>
+                    <form:input path="user" type="hidden" value="${loggedInUser.id}"/>
                     <input type="submit" value="Submit" class="btn btn-success mt-2"/>
                 </form:form>
     </div>

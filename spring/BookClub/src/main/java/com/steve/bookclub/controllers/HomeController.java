@@ -76,7 +76,7 @@ public class HomeController {
     	if(id==null) {
     		return "redirect:/";
     	}
-    	User loggedInUser = this.userServ.findOneUser(id);
+    	User loggedInUser = userServ.findOneUser(id);
     	model.addAttribute("loggedInUser", loggedInUser);
     	model.addAttribute("newBook", new Book());
     	return "create.jsp";
@@ -120,5 +120,16 @@ public class HomeController {
 		this.bookServ.deleteBook(id);	
 		return "redirect:/home";
 	}
+    @GetMapping("/bookmarket")
+    public String bookMarket(HttpSession session, Model model) {
+    	Long userId = (Long) session.getAttribute("loggedInUser");
+    	User loggedInUser = this.userServ.findOneUser(userId);
+    	model.addAttribute("loggedInUser", loggedInUser);
+    	List<Book> allBooks = this.bookServ.getAllBooks();
+    	model.addAttribute("allBooks", allBooks);
+    	return "bookmarket.jsp";
+    }
+    
+    
 }
 
